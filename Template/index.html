@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cícero Lino - Developer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        :root {
+            --manjaro-green: #2ecc71;
+            --manjaro-green-light: #27ae60;
+            --manjaro-green-dark: #145b32;
+            --manjaro-green-accent: #1abc9c;
+            --manjaro-bg: #1a1a1a;
+            --manjaro-card: #2d2d2d;
+            --manjaro-text: #ffffff;
+            --manjaro-border: #2ecc71;
+            --manjaro-text-secondary: #a0aec0;
+            --manjaro-hover: rgba(46, 204, 113, 0.1);
+            --manjaro-shadow: rgba(46, 204, 113, 0.1);
+        }
+
+        [data-theme="light"] {
+            --manjaro-bg: #f0f7f4;
+            --manjaro-card: #ffffff;
+            --manjaro-text: #2d2d2d;
+            --manjaro-border: #27ae60;
+            --manjaro-text-secondary: #4a5568;
+            --manjaro-hover: rgba(39, 174, 96, 0.1);
+            --manjaro-shadow: rgba(39, 174, 96, 0.1);
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--manjaro-bg);
+            color: var(--manjaro-text);
+            transition: all 0.3s ease;
+        }
+
+        .card {
+            background-color: var(--manjaro-card);
+            transition: all 0.3s ease;
+            border: 1px solid var(--manjaro-border);
+            box-shadow: 0 4px 6px var(--manjaro-shadow);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px var(--manjaro-shadow);
+        }
+
+        .pixel-font {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .glitch-effect {
+            position: relative;
+        }
+
+        .glitch-effect::before,
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-effect::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-effect::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            5% { clip: rect(112px, 9999px, 76px, 0); }
+            10% { clip: rect(85px, 9999px, 77px, 0); }
+            15% { clip: rect(27px, 9999px, 97px, 0); }
+            20% { clip: rect(17px, 9999px, 35px, 0); }
+            25% { clip: rect(2px, 9999px, 39px, 0); }
+            30% { clip: rect(58px, 9999px, 94px, 0); }
+            35% { clip: rect(43px, 9999px, 96px, 0); }
+            40% { clip: rect(82px, 9999px, 64px, 0); }
+            45% { clip: rect(54px, 9999px, 27px, 0); }
+            50% { clip: rect(28px, 9999px, 61px, 0); }
+            55% { clip: rect(73px, 9999px, 98px, 0); }
+            60% { clip: rect(12px, 9999px, 14px, 0); }
+            65% { clip: rect(79px, 9999px, 31px, 0); }
+            70% { clip: rect(45px, 9999px, 43px, 0); }
+            75% { clip: rect(82px, 9999px, 38px, 0); }
+            80% { clip: rect(88px, 9999px, 97px, 0); }
+            85% { clip: rect(6px, 9999px, 42px, 0); }
+            90% { clip: rect(82px, 9999px, 63px, 0); }
+            95% { clip: rect(87px, 9999px, 82px, 0); }
+            100% { clip: rect(40px, 9999px, 73px, 0); }
+        }
+
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 119px, 0); }
+            5% { clip: rect(44px, 9999px, 144px, 0); }
+            10% { clip: rect(12px, 9999px, 77px, 0); }
+            15% { clip: rect(54px, 9999px, 61px, 0); }
+            20% { clip: rect(64px, 9999px, 29px, 0); }
+            25% { clip: rect(84px, 9999px, 84px, 0); }
+            30% { clip: rect(82px, 9999px, 64px, 0); }
+            35% { clip: rect(60px, 9999px, 43px, 0); }
+            40% { clip: rect(43px, 9999px, 96px, 0); }
+            45% { clip: rect(82px, 9999px, 38px, 0); }
+            50% { clip: rect(51px, 9999px, 32px, 0); }
+            55% { clip: rect(57px, 9999px, 55px, 0); }
+            60% { clip: rect(10px, 9999px, 85px, 0); }
+            65% { clip: rect(75px, 9999px, 77px, 0); }
+            70% { clip: rect(98px, 9999px, 50px, 0); }
+            75% { clip: rect(79px, 9999px, 85px, 0); }
+            80% { clip: rect(78px, 9999px, 96px, 0); }
+            85% { clip: rect(32px, 9999px, 50px, 0); }
+            90% { clip: rect(73px, 9999px, 73px, 0); }
+            95% { clip: rect(86px, 9999px, 40px, 0); }
+            100% { clip: rect(82px, 9999px, 64px, 0); }
+        }
+
+        .side-menu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 250px;
+            background-color: var(--manjaro-card);
+            padding: 2rem;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 50;
+            box-shadow: 2px 0 5px rgba(46, 204, 113, 0.1);
+            border-right: 1px solid var(--manjaro-border);
+        }
+
+        .side-menu.open {
+            transform: translateX(0);
+        }
+
+        .menu-toggle {
+            position: fixed;
+            left: 1rem;
+            top: 1rem;
+            z-index: 51;
+            background-color: var(--manjaro-card);
+            border: 1px solid var(--manjaro-border);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 5px var(--manjaro-shadow);
+            transition: all 0.3s ease;
+            color: var(--manjaro-text);
+        }
+
+        .menu-toggle:hover {
+            background-color: var(--manjaro-green);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            right: 1rem;
+            top: 1rem;
+            z-index: 51;
+            background-color: var(--manjaro-card);
+            border: 1px solid var(--manjaro-border);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 5px var(--manjaro-shadow);
+            transition: all 0.3s ease;
+            color: var(--manjaro-text);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--manjaro-green);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            color: var(--manjaro-text);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .menu-item:hover {
+            background-color: var(--manjaro-green);
+            color: white;
+            transform: translateX(5px);
+            box-shadow: 0 2px 5px var(--manjaro-shadow);
+        }
+
+        .menu-item.active {
+            background-color: var(--manjaro-green);
+            color: white;
+            border-color: var(--manjaro-border);
+            box-shadow: 0 2px 5px var(--manjaro-shadow);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease;
+        }
+
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--manjaro-green);
+            z-index: 100;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="progress-bar"></div>
+    <div id="particles-js" class="fixed inset-0 z-0"></div>
+    
+    <!-- Menu Toggle Button -->
+    <button class="menu-toggle" onclick="toggleMenu()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+        </svg>
+    </button>
+
+    <!-- Side Menu -->
+    <nav class="side-menu">
+        <div class="flex flex-col gap-4">
+            <a href="#hero" class="menu-item active" onclick="setActiveMenuItem(this)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+                Início
+            </a>
+            <a href="#about" class="menu-item" onclick="setActiveMenuItem(this)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Sobre
+            </a>
+            <a href="#skills" class="menu-item" onclick="setActiveMenuItem(this)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                Habilidades
+            </a>
+            <a href="#portfolio" class="menu-item" onclick="setActiveMenuItem(this)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+                Portfólio
+            </a>
+            <a href="#experience" class="menu-item" onclick="setActiveMenuItem(this)">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                </svg>
+                Experiência
+            </a>
+            <a href="#" class="menu-item">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                </svg>
+                Discord
+            </a>
+        </div>
+    </nav>
+    
+    <main class="relative z-10 container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center">
+            <div class="card rounded-lg p-8 max-w-4xl w-full fade-in">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-manjaro-green slide-in-left">
+                        <img id="avatar" src="https://source.unsplash.com/random/400x400?developer" alt="Cícero Lino" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-center md:text-left slide-in-right">
+                        <h1 class="text-4xl font-bold mb-4 glitch-effect" data-text="Cícero Lino">Cícero Lino</h1>
+                        <p class="text-xl text-manjaro-green mb-4">Desenvolvedor Fullstack | TypeScript Specialist</p>
+                        <div class="mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="text-manjaro-green">Nível:</span>
+                                <div class="w-48 h-4 bg-gray-700 rounded-full overflow-hidden">
+                                    <div class="h-full bg-manjaro-green animate-pulse" style="width: 85%"></div>
+                                </div>
+                                <span>85%</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 justify-center md:justify-start">
+                            <button class="bg-manjaro-green hover:bg-manjaro-green-light text-white px-6 py-2 rounded-lg transition-colors">
+                                🎮 Baixar Currículo
+                            </button>
+                            <button class="bg-manjaro-green-accent hover:bg-manjaro-green-dark text-white px-6 py-2 rounded-lg transition-colors">
+                                🚀 Ver Portfólio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20">
+            <div class="card rounded-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold mb-8 text-center">Lore do Personagem</h2>
+                <div class="max-w-2xl mx-auto">
+                    <p class="text-lg mb-8">
+                        Cícero é um programador fullstack especializado em TypeScript. Ele cria sistemas escaláveis e eficientes usando NestJS e React.
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="card p-4 rounded-lg scale-in">
+                            <h3 class="text-manjaro-green mb-2">Database</h3>
+                            <p>Postgresql, Mysql</p>
+                        </div>
+                        <div class="card p-4 rounded-lg scale-in">
+                            <h3 class="text-manjaro-green mb-2">Backend</h3>
+                            <p>NestJS</p>
+                        </div>
+                        <div class="card p-4 rounded-lg scale-in">
+                            <h3 class="text-manjaro-green mb-2">Frontend</h3>
+                            <p>React, Next.js, Tailwind</p>
+                        </div>
+                        <div class="card p-4 rounded-lg scale-in">
+                            <h3 class="text-manjaro-green mb-2">DevOps</h3>
+                            <p>Serverless, AWS, PM2, Nginx</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="card rounded-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold mb-8 text-center">Skill Tree</h2>
+                <div class="max-w-2xl mx-auto space-y-6">
+                    <div class="card p-4 rounded-lg slide-in-left">
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Back-end Mastery</span>
+                            <span>🟩🟩🟩🟩🟩</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-600 rounded-full">
+                            <div class="h-full bg-manjaro-green rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="card p-4 rounded-lg slide-in-right">
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Frontend Engineering</span>
+                            <span>🟩🟩🟩🟩⬜</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-600 rounded-full">
+                            <div class="h-full bg-manjaro-green rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="card p-4 rounded-lg slide-in-left">
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Infra & DevOps</span>
+                            <span>🟩🟩🟩⬜⬜</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-600 rounded-full">
+                            <div class="h-full bg-manjaro-green rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div class="card p-4 rounded-lg slide-in-right">
+                        <div class="flex justify-between items-center mb-2">
+                            <span>Arquitetura & Escalabilidade</span>
+                            <span>🟩🟩🟩🟩⬜</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-600 rounded-full">
+                            <div class="h-full bg-manjaro-green rounded-full" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20">
+            <div class="card rounded-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold mb-8 text-center">Missões Completas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card rounded-lg overflow-hidden scale-in">
+                        <img src="https://source.unsplash.com/random/400x300?erp" alt="ERP Project" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">ERP System</h3>
+                            <p class="text-manjaro-text-secondary mb-4">Sistema completo de gestão empresarial</p>
+                            <a href="#" class="text-manjaro-green hover:text-manjaro-green-light transition-colors">Ver Projeto →</a>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg overflow-hidden scale-in">
+                        <img src="https://source.unsplash.com/random/400x300?game" alt="Life RPG Game" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Life RPG Game</h3>
+                            <p class="text-manjaro-text-secondary mb-4">Jogo de RPG para produtividade</p>
+                            <a href="#" class="text-manjaro-green hover:text-manjaro-green-light transition-colors">Ver Projeto →</a>
+                        </div>
+                    </div>
+                    <div class="card rounded-lg overflow-hidden scale-in">
+                        <img src="https://source.unsplash.com/random/400x300?governance" alt="Governance Analysis" class="w-full h-48 object-cover">
+                        <div class="p-4">
+                            <h3 class="text-xl font-bold mb-2">Governance Analysis</h3>
+                            <p class="text-manjaro-text-secondary mb-4">Sistema de análise de governança</p>
+                            <a href="#" class="text-manjaro-green hover:text-manjaro-green-light transition-colors">Ver Projeto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20">
+            <div class="card rounded-lg p-8 fade-in">
+                <h2 class="text-3xl font-bold mb-8 text-center">Histórico de Aventuras</h2>
+                <div class="max-w-2xl mx-auto space-y-6">
+                    <div class="card p-4 rounded-lg slide-in-left">
+                        <h3 class="text-xl font-bold mb-2">🏆 Conquistas Desbloqueadas</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2">
+                                <span class="text-manjaro-green">⭐</span>
+                                Lançou um sistema com milhares de usuários ativos!
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-manjaro-green">⭐</span>
+                                Otimizou uma API reduzindo 40% da latência!
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="text-manjaro-green">⭐</span>
+                                Desenvolveu um sistema de gamificação para produtividade!
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 text-center">
+            <div class="card rounded-lg p-8 fade-in">
+                <p class="text-manjaro-green mb-4">⚡ Powered by TypeScript, NestJS & React</p>
+                <p class="text-manjaro-text-secondary mb-4">💾 Código disponível em GitHub</p>
+                <p class="text-manjaro-text-secondary">📜 Feito com paixão por desenvolvimento e inovação</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Particles.js configuration
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#2ecc71'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#2ecc71',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // Menu toggle functionality
+        function toggleMenu() {
+            const menu = document.querySelector('.side-menu');
+            menu.classList.toggle('open');
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Set active menu item
+        function setActiveMenuItem(element) {
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+        }
+
+        // Initialize theme from localStorage
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.body.setAttribute('data-theme', savedTheme);
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menu = document.querySelector('.side-menu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menu.classList.remove('open');
+            }
+        });
+
+        // Update active menu item on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${currentSection}`) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Progress bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.progress-bar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+</html>
